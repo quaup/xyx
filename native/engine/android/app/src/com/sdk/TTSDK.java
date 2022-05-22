@@ -2,18 +2,18 @@ package com.sdk;
 
 import android.content.Context;
 
-import com.plantsvszombie.yinglongyou.aha.activity.MainActivity;
+import com.cocos.service.SDKWrapper;
+import com.happyeliminate.yinglongyou.aha.activity.MainActivity;
 
-import org.cocos2dx.javascript.service.SDKClass;
-
-public class TTSDK extends SDKClass{
+public class TTSDK implements SDKWrapper.SDKInterface {
     private static TTSDK sdk;
-
+    private Context context;
     @Override
     public void init(Context context) {
-        super.init(context);
+        this.context = context;
         sdk = this;
     }
+    Context getContext() { return this.context; }
     private void playFloatAd() {
         ((MainActivity)this.getContext()).playFloatAd();
     }

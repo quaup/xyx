@@ -12,6 +12,9 @@ import android.view.Gravity;
 import android.widget.FrameLayout;
 import android.widget.Toast;
 
+import com.cocos.game.AppActivity;
+import com.cocos.lib.CocosHelper;
+import com.cocos.lib.CocosJavascriptJavaBridge;
 import com.transsion.game.analytics.Constants;
 import com.transsion.game.analytics.GameAnalytics;
 import com.transsion.gamead.AdHelper;
@@ -19,9 +22,6 @@ import com.transsion.gamead.GameAdLoadListener;
 import com.transsion.gamead.GameAdRewardShowListener;
 import com.transsion.gamead.GameAdShowListener;
 import com.transsion.gamead.GameRewardItem;
-
-import org.cocos2dx.javascript.AppActivity;
-import org.cocos2dx.lib.Cocos2dxJavascriptJavaBridge;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -209,10 +209,10 @@ public class MainActivity extends AppActivity {
             @Override
             public void onUserEarnedReward(GameRewardItem rewardItem) {
                 Log.i(TAG, "Reward onUserEarnedReward " + rewardItem.getType() + " " + rewardItem.getAmount());
-                MainActivity.this.runOnGLThread(new Runnable() {
+                CocosHelper.runOnGameThread(new Runnable() {
                     @Override
                     public void run() {
-                        Cocos2dxJavascriptJavaBridge.evalString("videoAdCallback()");
+                        CocosJavascriptJavaBridge.evalString("videoAdCallback()");
                     }
                 });
             }
@@ -282,10 +282,10 @@ public class MainActivity extends AppActivity {
                 Log.i(TAG, "Float onClose");
                 if(!MainActivity.this.CallJsForInterstitialAD) {
                     MainActivity.this.CallJsForInterstitialAD = true;
-                    MainActivity.this.runOnGLThread(new Runnable() {
+                    CocosHelper.runOnGameThread(new Runnable() {
                         @Override
                         public void run() {
-                            Cocos2dxJavascriptJavaBridge.evalString("videoAdCallback()");
+                            CocosJavascriptJavaBridge.evalString("videoAdCallback()");
                         }
                     });
                 }
@@ -301,10 +301,10 @@ public class MainActivity extends AppActivity {
                 Log.i(TAG, "Float onAdImpression");
                 if(!MainActivity.this.CallJsForInterstitialAD) {
                     MainActivity.this.CallJsForInterstitialAD = true;
-                    MainActivity.this.runOnGLThread(new Runnable() {
+                    CocosHelper.runOnGameThread(new Runnable() {
                         @Override
                         public void run() {
-                            Cocos2dxJavascriptJavaBridge.evalString("videoAdCallback()");
+                            CocosJavascriptJavaBridge.evalString("videoAdCallback()");
                         }
                     });
                 }

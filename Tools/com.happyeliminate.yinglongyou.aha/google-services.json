@@ -1,0 +1,126 @@
+{
+  "project_info": {
+    "project_number": "813850457776",
+    "project_id": "casual-games-in-aha-games31",
+    "storage_bucket": "casual-games-in-aha-games31.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:813850457776:android:04aec799d2f65da088ad75",
+        "android_client_info": {
+          "package_name": "com.AircraftCube.xingdong.aha"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "813850457776-tduq03slkbc589foag6mjuevj5ur6nip.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA9ydxY45qk_QDQMWpLIJ6E1s9eYY4mJ_I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "813850457776-tduq03slkbc589foag6mjuevj5ur6nip.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:813850457776:android:7c750a2ede72258788ad75",
+        "android_client_info": {
+          "package_name": "com.Tilegame.jianguo.aha"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "813850457776-tduq03slkbc589foag6mjuevj5ur6nip.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA9ydxY45qk_QDQMWpLIJ6E1s9eYY4mJ_I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "813850457776-tduq03slkbc589foag6mjuevj5ur6nip.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:813850457776:android:6a6a1d8e158015bc88ad75",
+        "android_client_info": {
+          "package_name": "com.assassinninja.xingyuan.aha"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "813850457776-tduq03slkbc589foag6mjuevj5ur6nip.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA9ydxY45qk_QDQMWpLIJ6E1s9eYY4mJ_I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "813850457776-tduq03slkbc589foag6mjuevj5ur6nip.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:813850457776:android:6993f3e64c12eec688ad75",
+        "android_client_info": {
+          "package_name": "com.happyeliminate.yinglongyou.aha"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "813850457776-tduq03slkbc589foag6mjuevj5ur6nip.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA9ydxY45qk_QDQMWpLIJ6E1s9eYY4mJ_I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "813850457776-tduq03slkbc589foag6mjuevj5ur6nip.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
