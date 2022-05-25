@@ -7,15 +7,16 @@
     "sample": 60,
     "speed": 1,
     "wrapMode": "2",
+    "enableTrsBlending": false,
     "_duration": 0.5166666666666667,
-    "_hash": 0,
+    "_hash": 500763545,
     "_tracks": [
       {
         "__id__": 1
       }
     ],
-    "_events": [],
-    "_exoticAnimation": null
+    "_exoticAnimation": null,
+    "_events": []
   },
   {
     "__type__": "cc.animation.ObjectTrack",
@@ -56,9 +57,18 @@
       0.5
     ],
     "_values": [
-      "931e2bd4-501f-4956-b1b5-11a41b15b7c8@f9941",
-      "42a3d541-839c-446b-b979-62f16699d437@f9941",
-      "931e2bd4-501f-4956-b1b5-11a41b15b7c8@f9941"
+      {
+        "__uuid__": "931e2bd4-501f-4956-b1b5-11a41b15b7c8@f9941",
+        "__expectedType__": "cc.SpriteFrame"
+      },
+      {
+        "__uuid__": "42a3d541-839c-446b-b979-62f16699d437@f9941",
+        "__expectedType__": "cc.SpriteFrame"
+      },
+      {
+        "__uuid__": "931e2bd4-501f-4956-b1b5-11a41b15b7c8@f9941",
+        "__expectedType__": "cc.SpriteFrame"
+      }
     ]
   }
 ]

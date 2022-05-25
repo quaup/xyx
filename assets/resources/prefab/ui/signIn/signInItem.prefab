@@ -8,13 +8,14 @@
       "__id__": 1
     },
     "optimizationPolicy": 0,
-    "asyncLoadAssets": false,
-    "persistent": false
+    "persistent": false,
+    "asyncLoadAssets": false
   },
   {
     "__type__": "cc.Node",
     "_name": "signInItem",
     "_objFlags": 0,
+    "__editorExtras__": {},
     "_parent": null,
     "_children": [
       {
@@ -1127,7 +1128,7 @@
     "_string": "",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
-    "_actualFontSize": 0,
+    "_actualFontSize": 40,
     "_fontSize": 40,
     "_fontFamily": "Arial",
     "_lineHeight": 42,
@@ -1135,6 +1136,7 @@
     "_enableWrapText": true,
     "_font": null,
     "_isSystemFontUsed": true,
+    "_spacingX": 0,
     "_isItalic": false,
     "_isBold": false,
     "_isUnderline": false,
@@ -1178,7 +1180,7 @@
     "_contentSize": {
       "__type__": "cc.Size",
       "width": 0,
-      "height": 42
+      "height": 52.92
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -1831,10 +1833,7 @@
       "b": 124,
       "a": 255
     },
-    "_normalSprite": {
-      "__uuid__": "15800628-922c-40f6-8a1f-da0dc3369b90@f9941",
-      "__expectedType__": "cc.SpriteFrame"
-    },
+    "_normalSprite": null,
     "_hoverSprite": null,
     "_pressedSprite": null,
     "_disabledSprite": null,
@@ -1933,7 +1932,10 @@
   {
     "__type__": "LocalizedSpriteItem",
     "language": "zh",
-    "spriteFrame": null
+    "spriteFrame": {
+      "__uuid__": "15800628-922c-40f6-8a1f-da0dc3369b90@f9941",
+      "__expectedType__": "cc.SpriteFrame"
+    }
   },
   {
     "__type__": "LocalizedSpriteItem",

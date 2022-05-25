@@ -5,7 +5,7 @@ import { _decorator, Component, SpriteFrame, Sprite } from 'cc';
 const { ccclass, property, executeInEditMode } = _decorator;
 
 @ccclass('LocalizedSpriteItem')
-class LocalizedSpriteItem {
+export class LocalizedSpriteItem {
     @property
     language: string = 'zh';
     @property({

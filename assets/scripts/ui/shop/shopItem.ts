@@ -1,4 +1,5 @@
 import { _decorator, Component, Sprite, Label, Node, Animation, SpriteFrame } from 'cc';
+import { LocalizedSpriteItem } from '../../../../extensions/i18n/assets/LocalizedSprite';
 import { clientEvent } from '../../frameworks/clientEvent';
 import { GameLogic } from '../../frameworks/gameLogic';
 import { localConfig } from '../../frameworks/localConfig';
@@ -7,7 +8,7 @@ import { resourceUtil } from '../../frameworks/resourceUtil';
 import { uiManager } from '../../frameworks/uiManager';
 import { constants } from '../../shared/constants';
 import { ButtonEx } from '../common/buttonEx';
-
+import * as i18n from '../../../../extensions/i18n/assets/LanguageData';
 const { ccclass, property } = _decorator;
 
 @ccclass('ShopItem')
@@ -30,14 +31,22 @@ export class ShopItem extends Component {
     public ndNumber: Node = null!;
     @property
     public spBtnBuy: Sprite = null!;
-    @property
-    public sfBuy: SpriteFrame = null!;
-    @property
-    public sfShare: SpriteFrame = null!;
-    @property
-    public sfAd: SpriteFrame = null!;
-    @property
-    public sfReceive: SpriteFrame = null!;
+    @property({
+        type: LocalizedSpriteItem,
+    })
+    public sfBuy = [];
+    @property({
+        type: LocalizedSpriteItem,
+    })
+    public sfShare = [];
+    @property({
+        type: LocalizedSpriteItem,
+    })
+    public sfAd = [];
+    @property({
+        type: LocalizedSpriteItem,
+    })
+    public sfReceive = [];
 
     public info: any;
     public parent: any;
@@ -90,17 +99,17 @@ export class ShopItem extends Component {
                     this.rewardType = type;
                     switch (type) {
                         case constants.OPEN_REWARD_TYPE.AD:
-                            this.spBtnBuy.spriteFrame = this.sfAd;
+                            this.UpdateSprite(this.spBtnBuy,this.sfAd);
                             this.ndGold.active = false;
                             this.updateInfiniteShareTimes();
                             break;
                         case constants.OPEN_REWARD_TYPE.SHARE:
-                            this.spBtnBuy.spriteFrame = this.sfShare;
+                            this.UpdateSprite(this.spBtnBuy,this.sfShare);
                             this.ndGold.active = false;
                             this.updateInfiniteShareTimes();
                             break;
                         case constants.OPEN_REWARD_TYPE.NULL:
-                            this.spBtnBuy.spriteFrame = this.sfBuy;
+                            this.UpdateSprite(this.spBtnBuy, this.sfBuy);
                             this.lbProcess.node.active = false;
                             this.lbPrise.string = this.totalPrice;
                             break;
@@ -111,7 +120,17 @@ export class ShopItem extends Component {
             })
         }
     }
-
+    UpdateSprite(sprite:Sprite, list:LocalizedSpriteItem[]){
+        for (let i = 0; i < list.length; i++) {
+            const item = list[i];
+            // @ts-ignore
+            if (item.language === i18n._language) {
+                // @ts-ignore
+                sprite.spriteFrame = item.spriteFrame;
+                break;
+            }
+        }
+    }
     refreshBtn() {
         if (typeof this.rewardType === 'number' && this.rewardType !== constants.OPEN_REWARD_TYPE.NULL) {
             this.exBtnBuy.interactable = true;
@@ -147,7 +166,7 @@ export class ShopItem extends Component {
     updateInfiniteShareTimes() {
         this.spBtnBuy.node.setScale(1, 1, 1);
         if (this.id === constants.PROP_ID.INFINITE) {
-            this.spBtnBuy.spriteFrame = this.sfReceive;
+            this.UpdateSprite(this.spBtnBuy, this.sfReceive);
             this.spBtnBuy.node.setScale(1.3, 1.3, 1.3);
         }
     }

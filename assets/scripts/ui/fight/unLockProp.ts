@@ -6,6 +6,9 @@ import { GameLogic } from '../../frameworks/gameLogic';
 import { uiManager } from '../../frameworks/uiManager';
 import { resourceUtil } from '../../frameworks/resourceUtil';
 import { localConfig } from '../../frameworks/localConfig';
+import { LocalizedSpriteItem } from '../../../../extensions/i18n/assets/LocalizedSprite';
+import * as i18n from '../../../../extensions/i18n/assets/LanguageData';
+
 const { ccclass, property } = _decorator;
 
 @ccclass('UnLockProp')
@@ -18,12 +21,18 @@ export class UnLockProp extends Component {
     public spIcon: Sprite = null!;
     @property
     public spBtnReceive: Sprite = null!;
-    @property
-    public sfReceive: SpriteFrame = null!;
-    @property
-    public sfAd: SpriteFrame = null!;
-    @property
-    public sfShare: SpriteFrame = null!;
+    @property({
+        type:LocalizedSpriteItem
+    })
+    public sfReceive = [];
+    @property({
+        type:LocalizedSpriteItem
+    })
+    public sfAd = [];
+    @property({
+        type:LocalizedSpriteItem
+    })
+    public sfShare = [];
     @property
     public ndBtnGoStart: Node = null!;
 
@@ -45,13 +54,13 @@ export class UnLockProp extends Component {
                 this.openRewardType = type;
                 switch (type) {
                     case constants.OPEN_REWARD_TYPE.AD:
-                        this.spBtnReceive.spriteFrame = this.sfAd;
+                        this.UpdateSprite(this.spBtnReceive, this.sfAd);
                         break;
                     case constants.OPEN_REWARD_TYPE.SHARE:
-                        this.spBtnReceive.spriteFrame = this.sfShare;
+                        this.UpdateSprite(this.spBtnReceive, this.sfShare);
                         break;
                     case constants.OPEN_REWARD_TYPE.NULL:
-                        this.spBtnReceive.spriteFrame = this.sfReceive;
+                        this.UpdateSprite(this.spBtnReceive, this.sfReceive);
                         break;
                 }
             } else {
@@ -64,7 +73,17 @@ export class UnLockProp extends Component {
         }, constants.NORMAL_SHOW_TIME);
         this.init();
     }
-
+    UpdateSprite(sprite:Sprite, list:LocalizedSpriteItem[]){
+        for (let i = 0; i < list.length; i++) {
+            const item = list[i];
+            // @ts-ignore
+            if (item.language === i18n._language) {
+                // @ts-ignore
+                sprite.spriteFrame = item.spriteFrame;
+                break;
+            }
+        }
+    }
     init() {
         this.lbNum.string = (1).toString();
         this.lbName.string = this.propItem.name;

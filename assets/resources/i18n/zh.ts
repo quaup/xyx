@@ -71,6 +71,10 @@ export const languages = {
     "shop": {
         "receive": "立即领取"
     },
+    "normal_recv" : "<color=#ffffff><u>普通领取</u></c>",
+    "welcome_back" : "欢迎回来",
+    "tribble_take" : "3倍领取",
+    "start_quick"  : "<color=#ffffff><u>直接开始</u></color>"
 };
 
 

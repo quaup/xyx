@@ -1,4 +1,4 @@
-import { _decorator, Component, Node, find, director, profiler, game, Game } from 'cc';
+import { _decorator, Component, Node, find, director, profiler, game, Game, sys } from 'cc';
 import { AudioManager } from '../../frameworks/audioManager';
 import { playerData } from '../../frameworks/playerData';
 import { uiManager } from '../../frameworks/uiManager';
@@ -17,8 +17,7 @@ export class LoginScene extends Component {
     isLoadCsvFinishd: any = false;
 
     onLoad() {
-        i18n.init('zh');
-
+        i18n.init('en');
         profiler.hideStats();
 
         //初始化音频

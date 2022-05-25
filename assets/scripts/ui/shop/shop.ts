@@ -1,4 +1,5 @@
 import { _decorator, Component, Node, Prefab, Label, Animation, Sprite, SpriteFrame, instantiate } from 'cc';
+import { LocalizedSpriteItem } from '../../../../extensions/i18n/assets/LocalizedSprite';
 import { clientEvent } from '../../frameworks/clientEvent';
 import { localConfig } from '../../frameworks/localConfig';
 import { playerData } from '../../frameworks/playerData';
@@ -9,6 +10,7 @@ import { utils } from '../../shared/utils';
 import { ButtonEx } from '../common/buttonEx';
 import { ShopItem } from './shopItem';
 import { ShopPropsOperation } from './shopPropsOperation';
+import * as i18n from '../../../../extensions/i18n/assets/LanguageData';
 
 const { ccclass, property } = _decorator;
 
@@ -32,8 +34,10 @@ export class Shop extends Component {
     public ndBtnReceive: Node = null!;
     @property
     public spReceive: Sprite = null!;
-    @property
-    public sfReceive: SpriteFrame = null!;
+    @property({
+        type: LocalizedSpriteItem,
+    })
+    public sfReceive = [];
     @property
     public sfShare: SpriteFrame = null!;
     @property
@@ -64,9 +68,19 @@ export class Shop extends Component {
         this.animState = 'shopPropertyIdle';
         this.aniLight.play(this.animState);
         this.showShopProp();
-        this.spReceive.spriteFrame = this.sfReceive;
+        this.UpdateSprite(this.spReceive, this.sfReceive);
     }
-
+    UpdateSprite(sprite:Sprite, list:LocalizedSpriteItem[]){
+        for (let i = 0; i < list.length; i++) {
+            const item = list[i];
+            // @ts-ignore
+            if (item.language === i18n._language) {
+                // @ts-ignore
+                sprite.spriteFrame = item.spriteFrame;
+                break;
+            }
+        }
+    }
     showShopProp() {
         let shopPropInfo = playerData.instance.playerInfo.shopPropInfo;
         let dictProp = localConfig.instance.getTable('prop');

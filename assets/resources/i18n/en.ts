@@ -70,6 +70,10 @@ export const languages = {
     "shop": {
         "receive": "Receive it"
     },
+    "normal_recv" : "<color=#ffffff><u>Receive</u></c>",
+    "welcome_back" : "Welcome back",
+    "tribble_take" : "3倍领取",
+    "start_quick"  : "<color=#ffffff><u>直接开始</u></color>"
 };
 
 if (!win.languages) {
