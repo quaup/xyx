@@ -86,7 +86,7 @@ export class UnLockProp extends Component {
     }
     init() {
         this.lbNum.string = (1).toString();
-        this.lbName.string = this.propItem.name;
+        this.lbName.string = i18n.t('table_prop.' + this.propItem.name);
         resourceUtil.setPropIcon(this.propItem.icon, this.spIcon, () => { });
     }
 
