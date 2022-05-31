@@ -1,0 +1,2 @@
+"tribble_take" : "3倍领取",
+"start_quick"  : "<color=#ffffff><u>直接开始</u></color>"

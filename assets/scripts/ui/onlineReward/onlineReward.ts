@@ -30,7 +30,7 @@ export class OnlineReward extends Component {
         switch (onlineRewardInfo['value'].receiveStatus) {
             case constants.REWARD_STATUS.UNRECEIVABLE:
                 if (this.btnReceive.node) {
-                    // this.btnReceive.node.active = false;
+                    this.btnReceive.node.active = false;
                 }
                 this.aniFreeReward.play('freeGiftIdle');
                 this.schedule(this.countDownCallback, 0.5);
@@ -48,16 +48,14 @@ export class OnlineReward extends Component {
 
     onBtnReceiveClick() {
         let dictProp = localConfig.instance.getTable('prop');
-        // if (!dictProp) {
-        //     return false;
-        // }
+        if (!dictProp) {
+            return false;
+        }
         let arrPropKey = Object.keys(dictProp);
         let arrRandom: any = arrPropKey.filter(element => {
             return Number(element) !== constants.PROP_ID.INFINITE;
         });
         let randomVal = arrRandom[Math.floor(Math.random() * arrRandom.length)] + '';
-        this.showReward(randomVal);
-        return;
         GameLogic.instance.getOpenRewardType(constants.SHARE_FUNCTION.ONLINE, (err: any, type: any) => {
             if (!err) {
                 switch (type) {

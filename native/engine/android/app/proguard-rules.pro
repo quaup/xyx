@@ -15,7 +15,7 @@
 #-keepclassmembers class fqcn.of.javascript.interface.for.webview {
 #   public *;
 #}
-
+-keep public class com.sdk.TTSDK { *; }
 # Proguard Cocos2d-x-lite for release
 -keep public class com.cocos.** { *; }
 -dontwarn com.cocos.**
@@ -34,6 +34,8 @@
 # Proguard Android Webivew for release. you can comment if you are not using a webview
 -keep public class android.net.http.SslError
 -keep public class android.webkit.WebViewClient
+
+-keep public class com.google.** { *; }
 
 -dontwarn android.webkit.WebView
 -dontwarn android.net.http.SslError

@@ -1,5 +1,5 @@
 import { _decorator, Component, SpriteFrame, Node, Sprite } from 'cc';
-import { constants } from '../../shared/constants';
+import { constants, OPEN_REWARD_TYPE_ENUM } from '../../shared/constants';
 import { GameLogic } from '../../frameworks/gameLogic';
 import { uiManager } from '../../frameworks/uiManager';
 const { ccclass, property } = _decorator;
@@ -16,12 +16,12 @@ export class AdProp extends Component {
     public spBtn: Sprite = null!;
 
     public callback: any
-    public rewardType: any
+    public rewardType: OPEN_REWARD_TYPE_ENUM = null!
 
     show(callback: any) {
         this.callback = callback;
         this.rewardType = constants.OPEN_REWARD_TYPE.AD;
-        GameLogic.instance.getOpenRewardType(constants.SHARE_FUNCTION.START_REWARD, (err: any, type: any) => {
+        GameLogic.instance.getOpenRewardType(constants.SHARE_FUNCTION.START_REWARD, (err: any, type) => {
             if (!err) {
                 this.rewardType = type;
                 switch (type) {

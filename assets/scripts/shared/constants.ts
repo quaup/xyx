@@ -1,3 +1,44 @@
+export type SHARE_FUNCTION_TYPE = 
+'balance'       |
+'pve'           |
+'startReward'   |
+'lackStep'      |
+'fillSign'      |
+'offline'       |
+'rank'          |
+'buyInfinite'   |
+'lottery'       |
+'lotteryReward' |
+'online'        |
+'shopprop'      |
+'fight'         |
+'sign'
+export type OPEN_REWARD_TYPE_ENUM = 
+0 |
+1 |
+2
+interface OPEN_REWARD_TYPE {
+    AD:OPEN_REWARD_TYPE_ENUM,
+    SHARE:OPEN_REWARD_TYPE_ENUM,
+    NULL:OPEN_REWARD_TYPE_ENUM,
+}
+
+interface SHARE_FUNCTION {
+    BALANCE:SHARE_FUNCTION_TYPE
+    PVE:SHARE_FUNCTION_TYPE
+    START_REWARD:SHARE_FUNCTION_TYPE
+    LACK_STEP:SHARE_FUNCTION_TYPE
+    FILL_SIGN:SHARE_FUNCTION_TYPE
+    OFFLINE:SHARE_FUNCTION_TYPE
+    RANK:SHARE_FUNCTION_TYPE
+    BUY_INFINITE:SHARE_FUNCTION_TYPE
+    LOTTERY:SHARE_FUNCTION_TYPE
+    LOTTERY_REWARD:SHARE_FUNCTION_TYPE
+    ONLINE:SHARE_FUNCTION_TYPE
+    SHOP_PROP:SHARE_FUNCTION_TYPE
+    FIGHT:SHARE_FUNCTION_TYPE
+    SIGN:SHARE_FUNCTION_TYPE
+}
 const constants = {
     VERSION: '1.4.7',
 
@@ -68,7 +109,7 @@ const constants = {
         SHOP_PROP: 'shopprop', //商店随机道具
         FIGHT: 'fight', //战斗界面分享
         SIGN: 'sign', //签到分享
-    },
+    } as SHARE_FUNCTION,
 
     //观看广告的最大次数
     WATCH_AD_MAX_TIMES: {
@@ -167,9 +208,9 @@ const constants = {
         GIFT: 4, //礼包
     },
 
-    LOTTERY_MAX_TIMES: 3, //最大抽奖次数
+    LOTTERY_MAX_TIMES: 0, //最大抽奖次数
 
-    LOTTERY_AD_MAX_TIMES: 10, //看广告获得奖券的总次数
+    LOTTERY_AD_MAX_TIMES: 999999999, //看广告获得奖券的总次数
 
     TASK_RESET_TIME: 4, //任务倒计时时间
 
@@ -285,7 +326,7 @@ const constants = {
         AD: 0,
         SHARE: 1,
         NULL: 2
-    },
+    } as OPEN_REWARD_TYPE,
 
     //商场随机道具倒计时的小时数
     SHOP_COUNTDOWN_HOURS: 4,

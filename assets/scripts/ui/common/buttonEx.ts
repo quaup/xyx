@@ -27,7 +27,7 @@ export class ButtonEx extends Button {
             if (this.isPreventSecondClick) {
                 button.interactable = false;
                 this.scheduleOnce(function () {
-                    if (button.node) button.interactable = true;
+                    // if (button.node) button.interactable = true;
                 }, this.preventTime);
             }
             if (this.isPlaySound) {

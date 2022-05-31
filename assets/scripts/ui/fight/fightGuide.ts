@@ -1,4 +1,5 @@
 import { _decorator, Component } from 'cc';
+import SDK from '../../shared/SDK';
 import { AnimationUI } from '../common/animationUI';
 const { ccclass } = _decorator;
 
@@ -8,6 +9,7 @@ export class FightGuide extends Component {
     public closeCb: any;
 
     show(callback: any) {
+        SDK.onEvent("tutorial_begin", "", "")
         this.startTime = Date.now();
         this.closeCb = callback;
     }
@@ -24,6 +26,7 @@ export class FightGuide extends Component {
         if (this.closeCb) {
             this.closeCb();
         }
+        SDK.onEvent("tutorial_end", "", "")
     }
 
 }

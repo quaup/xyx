@@ -10,6 +10,7 @@ import { constants } from '../../shared/constants';
 import { EffectGroup } from './effectGroup';
 import { FightUI } from './fightUI';
 import { LinkContent } from './linkContent';
+import SDK from '../../shared/SDK';
 const { ccclass, property } = _decorator;
 
 @ccclass('FightScene')
@@ -22,7 +23,7 @@ export class FightScene extends Component {
     public nodeEffectGroup: Node = null!;
 
     public linkContent: any;
-    public fightUI: any;
+    public fightUI: FightUI = null!;
     public effectGroup: any;
     public isLevelOver: any;
     public spareStar: any;
@@ -37,7 +38,7 @@ export class FightScene extends Component {
         profiler.hideStats();
         playerData.instance.startNewLevel();
         this.linkContent = this.nodeLinkContent.getComponent(LinkContent);
-        this.fightUI = this.nodeFightUI.getComponent(FightUI);
+        this.fightUI = this.nodeFightUI.getComponent(FightUI)!;
         this.effectGroup = this.nodeEffectGroup.getComponent(EffectGroup);
         this.effectGroup.show(this);
         this.onNewLevel();
@@ -119,10 +120,12 @@ export class FightScene extends Component {
     }
 
     showGameOverUI() {
+        SDK.onEvent("level_end", playerData.instance.level.toString(), "0")
         uiManager.instance.showDialog("fight/balanceFailed");
     }
 
     onNewLevel() {
+        SDK.onEvent("level_begin", playerData.instance.level.toString(), "")
         this.isLevelStart = false; //等弹窗结束后在确定是否开始
         this.isLevelOver = false;
         this.reliveByAd = false; //步数用完时可通过让玩家选择是否要通过广告增加步数，仅能使用一次

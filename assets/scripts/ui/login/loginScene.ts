@@ -9,6 +9,7 @@ import * as i18n from '../../../../extensions/i18n/assets/LanguageData';
 import { constants } from '../../shared/constants';
 import { localConfig } from '../../frameworks/localConfig';
 import { StorageManager } from '../../frameworks/storageManager';
+import SDK from '../../shared/SDK';
 const { ccclass, property } = _decorator;
 
 @ccclass('LoginScene')
@@ -18,7 +19,9 @@ export class LoginScene extends Component {
 
     onLoad() {
         i18n.init('en');
+        sys.localStorage.clear()
         profiler.hideStats();
+        SDK.onEvent("login_ui", "", "")
 
         //初始化音频
         AudioManager.instance.init();
@@ -82,6 +85,7 @@ export class LoginScene extends Component {
             }
         ], function (err: any, result: any) {
             if (err) {
+                SDK.onEvent("login_result", "0", "")
                 console.error(err.message || err);
                 return;
             }
@@ -116,6 +120,7 @@ export class LoginScene extends Component {
 
     onBtnVisitorLoginClick() {
         if (!this.isLoadCsvFinishd) return;
+        SDK.onEvent("login_click", "", "")
         this.showLoadingUI();
     }
 }

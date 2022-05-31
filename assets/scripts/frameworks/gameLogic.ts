@@ -1,9 +1,10 @@
 import { _decorator } from 'cc';
 import { playerData } from './playerData';
 import { clientEvent } from './clientEvent';
-import { constants } from '../shared/constants';
+import { constants, OPEN_REWARD_TYPE_ENUM, SHARE_FUNCTION_TYPE } from '../shared/constants';
 import { uiManager } from './uiManager';
 import { SceneManager } from '../ui/loading/sceneManager';
+import SDK from '../shared/SDK';
 const { ccclass, property } = _decorator;
 
 @ccclass('GameLogic')
@@ -140,7 +141,7 @@ export class GameLogic {
     }
 
     showRewardAd(callback: any) {
-        callback && callback(null);
+        SDK.showRewardVideoAD(callback)
     }
 
     showInterStitialAd(callback: any) {
@@ -166,8 +167,8 @@ export class GameLogic {
         clientEvent.dispatchEvent('updateProp', propId);
     }
 
-    getOpenRewardType(funStr: any, callback: any) {
-        callback(null, constants.OPEN_REWARD_TYPE.NULL);
+    getOpenRewardType(funStr: SHARE_FUNCTION_TYPE, callback: (err:string, type:OPEN_REWARD_TYPE_ENUM)=>void) {
+        callback(null!, constants.OPEN_REWARD_TYPE.AD);
     }
 
     customEventStatistics(eventType: any, objParams?: any) {

@@ -110,7 +110,7 @@ export class Reward extends Component {
                 GameLogic.instance.showRewardAd((err: any) => {
                     if (!err) {
                         this.itemAmount *= 2;
-                        this.showDoubleReward();
+                        this.onBtnNormalReceiveClick();
                     }
                 })
                 break;
@@ -118,7 +118,7 @@ export class Reward extends Component {
                 GameLogic.instance.share(this.shareFunction, {}, (err: any) => {
                     if (!err) {
                         this.itemAmount *= 2;
-                        this.showDoubleReward();
+                        this.onBtnNormalReceiveClick();
                     }
                 })
                 break;

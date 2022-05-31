@@ -7,6 +7,7 @@ import { AudioManager } from '../../frameworks/audioManager';
 import { clientEvent } from '../../frameworks/clientEvent';
 import { SceneManager } from '../loading/sceneManager';
 import { uiManager } from '../../frameworks/uiManager';
+import SDK from '../../shared/SDK';
 const { ccclass, property } = _decorator;
 
 @ccclass('Balance')
@@ -91,6 +92,11 @@ export class Balance extends Component {
         } else {
             this.ndBtnDouble.active = false;
         }
+        if(playerData.instance.level<=2) {
+            SDK.showFloatAd(()=>{
+
+            })
+        }
     }
 
     onShowStar() {
@@ -108,10 +114,13 @@ export class Balance extends Component {
         if (this.isOver) {
             return;
         }
-        this.isOver = true;
-        playerData.instance.nextLevel();
-        this.close();
-        clientEvent.dispatchEvent('newLevel');
+        SDK.showInterstitialAd(()=>{
+            this.isOver = true;
+            SDK.onEvent("level_end", playerData.instance.level.toString(), "1")
+            playerData.instance.nextLevel();
+            this.close();
+            clientEvent.dispatchEvent('newLevel');
+        })
     }
 
     onBtnRetryClick() {
@@ -162,6 +171,7 @@ export class Balance extends Component {
 
     close() {
         uiManager.instance.hideDialog('fight/balance');
+        SDK.hideFloatAd()
     }
 
 }

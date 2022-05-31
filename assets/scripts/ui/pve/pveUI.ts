@@ -4,6 +4,7 @@ import { GameLogic } from '../../frameworks/gameLogic';
 import { playerData } from '../../frameworks/playerData';
 import { uiManager } from '../../frameworks/uiManager';
 import { constants } from '../../shared/constants';
+import SDK from '../../shared/SDK';
 import { utils } from '../../shared/utils';
 import { MultiScrollView } from './multiScrollView';
 const { ccclass, property } = _decorator;
@@ -106,7 +107,7 @@ export class PveUI extends Component {
             if (!spareTimes) { //如果三次抽取完了
                 if (this.rewardType !== constants.OPEN_REWARD_TYPE.NULL) {
                     this.lbLotterySpareTimes.string = (spareMoreTimes).toString();
-                    this.ndLotteryTips.getComponent(Sprite)!.spriteFrame = this.sfBlueDot;
+                    // this.ndLotteryTips.getComponent(Sprite)!.spriteFrame = this.sfBlueDot;
                     ani.play();
                 } else {
                     this.ndLotteryTips.active = false;

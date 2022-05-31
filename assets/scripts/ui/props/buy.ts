@@ -112,10 +112,10 @@ export class Buy extends Component {
                 let infiniteShareTimes = playerData.instance.getInfiniteTimes();
                 if (infiniteShareTimes >= constants.MAX_INFINITE_TIMES) {
                     this.spAdIcon.node.active = false;
-                    this.lbAd.string = i18n.t('shop.receive');
+                    // this.lbAd.string = i18n.t('shop.receive');
                 } else {
                     this.spAdIcon.node.active = true;
-                    this.lbAd.string = infiniteShareTimes + '/' + constants.MAX_INFINITE_TIMES;
+                    // this.lbAd.string = infiniteShareTimes + '/' + constants.MAX_INFINITE_TIMES;
                 }
             });
         } else {
@@ -143,11 +143,12 @@ export class Buy extends Component {
     }
 
     onBtnReceiveClick() {
-        let infiniteShareTimes = playerData.instance.getInfiniteTimes();
-        if (infiniteShareTimes >= constants.MAX_INFINITE_TIMES) {
-            playerData.instance.exchangeInfiniteProp(); //消耗次数
-            this.rewardProp();
-        }
+        // let infiniteShareTimes = playerData.instance.getInfiniteTimes();
+        // if (infiniteShareTimes >= constants.MAX_INFINITE_TIMES) {
+        //     playerData.instance.exchangeInfiniteProp(); //消耗次数
+        // }
+        this.close()
+        this.rewardProp();
     }
 
     close() {

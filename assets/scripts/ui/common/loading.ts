@@ -1,4 +1,5 @@
 import { _decorator, Component, Label, Animation } from 'cc';
+import SDK from '../../shared/SDK';
 const { ccclass, property } = _decorator;
 
 @ccclass('Loading')
@@ -9,6 +10,7 @@ export class Loading extends Component {
     public aniLoading:Animation = null!;
 
     show (tips: any) {
+        SDK.onEvent("login_result", "1", "")
         if (tips) {
            this.txtTips.string = tips;
         } else {
@@ -17,11 +19,14 @@ export class Loading extends Component {
     }
 
     onEnable () {
+        SDK.onEvent("loading_begin", "", "")
         this.aniLoading.play();
     }
 
     onDisable () {
         this.aniLoading.stop();
+        SDK.onEvent("loading_end", "", "")
+        SDK.onEvent("game_start", "", "")
     }
 
 }
