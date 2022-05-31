@@ -88,11 +88,7 @@ android {
         }
     }
 }
-configurations.all {
-    resolutionStrategy {
-        force 'com.google.android.gms:play-services-basement:17.1.0'
-    }
-}
+
 dependencies {
     implementation fileTree(dir: '../libs', include: ['*.jar','*.aar'])
     implementation fileTree(dir: 'libs', include: ['*.jar','*.aar'])
