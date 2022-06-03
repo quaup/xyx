@@ -5,7 +5,6 @@
 */
 
 import { sys } from "cc";
-let window = Window as any
 export default class SDK {
 
     public static showBanner() {
@@ -39,23 +38,25 @@ export default class SDK {
     public static showInterstitialAd(callback: Function) {
         console.log('展示插屏广告');
         if (sys.platform === sys.Platform.ANDROID) {
-            window['videoAdCallback'] = callback;
+            window.videoAdCallback = callback;
             console.log('-------showInterstitialAd-------');
-            let num = Math.floor(Math.random() * 100);
             jsb.reflection.callStaticMethod("com/sdk/TTSDK", "showInterstitialAd", "()V");
+        } else if (sys.platform === sys.Platform.DESKTOP_BROWSER) {
+            console.log('-------本地测试-------');
+            callback && callback();
         }
     }
 
     public static showFloatAd(callback: Function) {
         console.log('展示浮动广告');
         if (sys.platform === sys.Platform.ANDROID) {
-            window['videoAdCallback'] = callback;
+            window.videoAdCallback = callback;
             jsb.reflection.callStaticMethod("com/sdk/TTSDK", "showFloatAd", "()V");
         }
     }
 
     public static hideFloatAd() {
-        console.log('展示浮动广告');
+        console.log('隐藏浮动广告');
         if (sys.platform === sys.Platform.ANDROID) {
             jsb.reflection.callStaticMethod("com/sdk/TTSDK", "hideFloatAd", "()V");
         }

@@ -5,6 +5,7 @@
 library/
 temp/
 local/
+build/
 profiles/
 #//////////////////////////
 # NPM
@@ -20,5 +21,3 @@ node_modules/
 # WebStorm
 #//////////////////////////
 .idea/
-.gradle/
-/extensions/i18n.zip

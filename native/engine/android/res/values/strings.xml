@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name" translatable="false">Happy Eliminate</string>
+    <string name="ad_attribution" translatable="false">Happy Eliminate</string>
 </resources>

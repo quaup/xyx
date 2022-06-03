@@ -143,12 +143,17 @@ export class Buy extends Component {
     }
 
     onBtnReceiveClick() {
+        if(this.propId === constants.PROP_ID.INFINITE) {
+            GameLogic.instance.showRewardAd(()=>{
+                clientEvent.dispatchEvent('updateInfiniteShareTimes');
+                this.rewardProp();
+                this.close();
+            })
+        }
         // let infiniteShareTimes = playerData.instance.getInfiniteTimes();
         // if (infiniteShareTimes >= constants.MAX_INFINITE_TIMES) {
         //     playerData.instance.exchangeInfiniteProp(); //消耗次数
         // }
-        this.close()
-        this.rewardProp();
     }
 
     close() {

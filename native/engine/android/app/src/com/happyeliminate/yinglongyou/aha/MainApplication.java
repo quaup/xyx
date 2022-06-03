@@ -53,8 +53,12 @@ public class MainApplication extends MultiDexApplication {
 
         AdInitializer.init(
                 new AdInitializer.Builder(this)
+                        //*
+                        .setDebuggable(false).setEnv("release")
+                        /*/
                         .setDebuggable(true).setEnv("test")
                         .setTestDeviceIds(Collections.singletonList("7FC2C0BE39C47406C984C08C16418C5C"))
+                        //*/
                         .setTotalSwitch(true)
         );
 
